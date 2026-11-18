@@ -1,0 +1,23 @@
+name: ekochai
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12
+  - numpy=1.26
+  - pandas=2.2
+  - scipy=1.13
+  - biopython=1.84
+  - matplotlib=3.8
+  - jupyterlab
+  - hmmer=3.4                # ANARCI dependency
+  - pip
+  - pip:
+      - anarci==2026.2.13.2  # IMGT numbering for the CDR RMSD
+      - DockQ==2.1.3         # provides the `DockQ` executable used by ekochai.dockq
+
+  # Install separately, into its own environment, following the Chai-1
+  #     pip install chai_lab==0.6.1
+  #
+  # chai_lab pulls in torch and a CUDA build; keeping it out of this file lets
+  # the analysis environment stay small.
